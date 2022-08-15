@@ -19,9 +19,9 @@ package irel
 import (
 	"log"
 
-	"github.com/pivotal/image-relocation/pkg/registry"
-	"github.com/pivotal/image-relocation/pkg/registry/ggcr"
-	"github.com/pivotal/image-relocation/pkg/transport"
+	"github.com/cnabio/image-relocation/pkg/registry"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcr"
+	"github.com/cnabio/image-relocation/pkg/transport"
 
 	"github.com/spf13/cobra"
 )

@@ -1,4 +1,4 @@
-module github.com/pivotal/image-relocation
+module github.com/cnabio/image-relocation
 
 require (
 	github.com/docker/distribution v2.7.0+incompatible
@@ -9,7 +9,7 @@ require (
 	github.com/opencontainers/go-digest v1.0.0-rc1
 	github.com/pkg/errors v0.8.1
 	github.com/spf13/cobra v0.0.5
-	golang.org/x/sys v0.0.0-20190616124812-15dcb6c0061f // indirect
+	golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab // indirect
 )
 
 go 1.12

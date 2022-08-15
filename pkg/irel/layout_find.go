@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/pivotal/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/image"
 	"github.com/spf13/cobra"
 )
 

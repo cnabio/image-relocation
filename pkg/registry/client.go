@@ -17,7 +17,7 @@
 package registry
 
 import (
-	"github.com/pivotal/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/image"
 )
 
 // Client provides a way of interacting with image registries.

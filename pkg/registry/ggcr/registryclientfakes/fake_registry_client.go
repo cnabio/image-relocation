@@ -5,9 +5,9 @@ import (
 	sync "sync"
 
 	v1 "github.com/google/go-containerregistry/pkg/v1"
-	image "github.com/pivotal/image-relocation/pkg/image"
-	registry "github.com/pivotal/image-relocation/pkg/registry"
-	ggcr "github.com/pivotal/image-relocation/pkg/registry/ggcr"
+	image "github.com/cnabio/image-relocation/pkg/image"
+	registry "github.com/cnabio/image-relocation/pkg/registry"
+	ggcr "github.com/cnabio/image-relocation/pkg/registry/ggcr"
 )
 
 type FakeRegistryClient struct {

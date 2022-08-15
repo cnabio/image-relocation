@@ -19,13 +19,13 @@ package ggcr
 import (
 	"fmt"
 
-	"github.com/pivotal/image-relocation/pkg/registry"
-	"github.com/pivotal/image-relocation/pkg/registry/ggcr/path"
+	"github.com/cnabio/image-relocation/pkg/registry"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcr/path"
 
 	"github.com/google/go-containerregistry/pkg/v1"
 	"github.com/google/go-containerregistry/pkg/v1/layout"
 
-	"github.com/pivotal/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/image"
 )
 
 const refNameAnnotation = "org.opencontainers.image.ref.name"

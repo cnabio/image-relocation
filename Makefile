@@ -7,9 +7,9 @@ GO_SOURCES = $(shell find . -type f -name '*.go')
 VERSION ?= $(shell cat VERSION)
 GITSHA = $(shell git rev-parse HEAD)
 GITDIRTY = $(shell git diff --quiet HEAD || echo "dirty")
-LDFLAGS_VERSION = -X github.com/pivotal/image-relocation/pkg/irel.cli_version=$(VERSION) \
-				  -X github.com/pivotal/image-relocation/pkg/irel.cli_gitsha=$(GITSHA) \
-				  -X github.com/pivotal/image-relocation/pkg/irel.cli_gitdirty=$(GITDIRTY)
+LDFLAGS_VERSION = -X github.com/cnabio/image-relocation/pkg/irel.cli_version=$(VERSION) \
+				  -X github.com/cnabio/image-relocation/pkg/irel.cli_gitsha=$(GITSHA) \
+				  -X github.com/cnabio/image-relocation/pkg/irel.cli_gitdirty=$(GITDIRTY)
 
 test:
 	GO111MODULE=on go test ./... -coverprofile=coverage.txt -covermode=atomic

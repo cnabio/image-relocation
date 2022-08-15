@@ -17,7 +17,7 @@
 package registry
 
 import (
-	"github.com/pivotal/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/image"
 )
 
 // A Layout abstracts an OCI image layout on disk.
@@ -31,4 +31,3 @@ type Layout interface {
 	// Find returns the digest of an image in the layout with the given image reference.
 	Find(n image.Name) (image.Digest, error)
 }
-

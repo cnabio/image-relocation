@@ -24,7 +24,7 @@ import (
 
 	"github.com/docker/distribution/reference"
 
-	"github.com/pivotal/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/image"
 )
 
 // PathMapping is a type of function which maps a given Name to a new Name by apply a repository prefix.

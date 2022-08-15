@@ -21,9 +21,9 @@ import (
 	"fmt"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/pivotal/image-relocation/pkg/image"
-	"github.com/pivotal/image-relocation/pkg/registry"
-	"github.com/pivotal/image-relocation/pkg/registry/registryfakes"
+	"github.com/cnabio/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/registry"
+	"github.com/cnabio/image-relocation/pkg/registry/registryfakes"
 )
 
 var _ = Describe("Client", func() {
@@ -38,7 +38,7 @@ var _ = Describe("Client", func() {
 		readResultErr   error
 		writeArgName    image.Name
 		dig             image.Digest
-		dig2             image.Digest
+		dig2            image.Digest
 		fakeImage       *registryfakes.FakeImage
 	)
 

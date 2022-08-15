@@ -22,7 +22,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/pivotal/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/image"
 )
 
 // Set is an immutable collection of image references without duplicates.

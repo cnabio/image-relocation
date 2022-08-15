@@ -18,13 +18,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/pivotal/image-relocation/pkg/irel"
+	"github.com/cnabio/image-relocation/pkg/irel"
 	"os"
 )
 
 func main() {
 	cmd := irel.Root
-	
+
 	cmd.Version = irel.CliVersion()
 	cmd.Flags().Bool("version", false, "display CLI version")
 

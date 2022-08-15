@@ -4,8 +4,8 @@ package registryfakes
 import (
 	sync "sync"
 
-	image "github.com/pivotal/image-relocation/pkg/image"
-	registry "github.com/pivotal/image-relocation/pkg/registry"
+	image "github.com/cnabio/image-relocation/pkg/image"
+	registry "github.com/cnabio/image-relocation/pkg/registry"
 )
 
 type FakeImage struct {

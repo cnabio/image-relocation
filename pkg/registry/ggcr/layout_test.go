@@ -23,13 +23,13 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/pivotal/image-relocation/pkg/image"
-	"github.com/pivotal/image-relocation/pkg/registry"
-	"github.com/pivotal/image-relocation/pkg/registry/ggcr"
-	"github.com/pivotal/image-relocation/pkg/registry/ggcr/path/pathfakes"
-	"github.com/pivotal/image-relocation/pkg/registry/ggcr/registryclientfakes"
-	"github.com/pivotal/image-relocation/pkg/registry/ggcrfakes"
-	"github.com/pivotal/image-relocation/pkg/registry/registryfakes"
+	"github.com/cnabio/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/registry"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcr"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcr/path/pathfakes"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcr/registryclientfakes"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcrfakes"
+	"github.com/cnabio/image-relocation/pkg/registry/registryfakes"
 )
 
 var _ = Describe("Layout", func() {

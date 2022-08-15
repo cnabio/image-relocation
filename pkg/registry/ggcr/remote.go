@@ -21,13 +21,13 @@ import (
 	"net/http"
 
 	"github.com/google/go-containerregistry/pkg/v1/types"
-	"github.com/pivotal/image-relocation/pkg/registry"
+	"github.com/cnabio/image-relocation/pkg/registry"
 
 	"github.com/google/go-containerregistry/pkg/authn"
 	"github.com/google/go-containerregistry/pkg/name"
 	v1 "github.com/google/go-containerregistry/pkg/v1"
 	"github.com/google/go-containerregistry/pkg/v1/remote"
-	"github.com/pivotal/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/image"
 )
 
 var (

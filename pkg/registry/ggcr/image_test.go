@@ -22,9 +22,9 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/pkg/errors"
 
-	"github.com/pivotal/image-relocation/pkg/image"
-	"github.com/pivotal/image-relocation/pkg/registry/ggcr/path/pathfakes"
-	"github.com/pivotal/image-relocation/pkg/registry/ggcrfakes"
+	"github.com/cnabio/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcr/path/pathfakes"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcrfakes"
 )
 
 var _ = Describe("Image", func() {
@@ -184,13 +184,13 @@ var _ = Describe("Image", func() {
 			})
 
 			Context("when appending the image fails", func() {
-			    BeforeEach(func() {
-			        mockLayoutPath.AppendImageReturns(testErr)
-			    })
+				BeforeEach(func() {
+					mockLayoutPath.AppendImageReturns(testErr)
+				})
 
-			    It("should return the error", func() {
-			        Expect(err).To(MatchError(testErr))
-			    })
+				It("should return the error", func() {
+					Expect(err).To(MatchError(testErr))
+				})
 			})
 		})
 	})

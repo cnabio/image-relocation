@@ -17,7 +17,7 @@
 package registry
 
 import (
-	"github.com/pivotal/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/image"
 )
 
 // Image represents an abstract image which could be an image manifest or an image index (e.g. a multi-arch image).

@@ -23,7 +23,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/pivotal/image-relocation/pkg/transport"
+	"github.com/cnabio/image-relocation/pkg/transport"
 )
 
 var _ = Describe("NewHttpTransport", func() {
