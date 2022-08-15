@@ -1,6 +1,6 @@
 # Docker/OCI image relocation
 
-🍴 This is a fork of github.com/pivotal/image-relocation since that repository was archived.
+🍴 This is a fork of https://github.com/pivotal/image-relocation since that repository was archived.
 The Go package name has been updated to github.com/cnabio/image-relocation, since the original will never be updated and will always require replace statements otherwise.
 
 [![GoDoc](https://godoc.org/github.com/cnabio/image-relocation?status.svg)](https://godoc.org/github.com/cnabio/image-relocation)
