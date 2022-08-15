@@ -37,7 +37,7 @@ var (
 	repoIndexWriteFunc = remote.WriteIndex
 )
 
-func readRemoteImage(mfstWriter manifestWriter, idxWriter indexWriter, transport http.RoundTripper) func(image.Name) (registry.Image, error) {
+func readRemoteImage(mfstWriter manifestWriter, idxWriter indexWriter, transport http.RoundTripper, insecure bool) func(image.Name) (registry.Image, error) {
 	return func(n image.Name) (registry.Image, error) {
 		auth, err := resolve(n)
 		if err != nil {
@@ -51,7 +51,13 @@ func readRemoteImage(mfstWriter manifestWriter, idxWriter indexWriter, transport
 				return nil, err
 			}
 		}
-		ref, err := name.ParseReference(n.String(), name.StrictValidation)
+
+		parseOpts := []name.Option{name.StrictValidation}
+		if insecure {
+			parseOpts = append(parseOpts, name.Insecure)
+		}
+
+		ref, err := name.ParseReference(n.String(), parseOpts...)
 		if err != nil {
 			return nil, err
 		}
@@ -80,14 +86,14 @@ func readRemoteImage(mfstWriter manifestWriter, idxWriter indexWriter, transport
 	}
 }
 
-func writeRemoteImage(transport http.RoundTripper) func(v1.Image, image.Name) error {
+func writeRemoteImage(transport http.RoundTripper, insecure bool) func(v1.Image, image.Name) error {
 	return func(i v1.Image, n image.Name) error {
 		auth, err := resolve(n)
 		if err != nil {
 			return err
 		}
 
-		ref, err := getWriteReference(n)
+		ref, err := getWriteReference(n, insecure)
 		if err != nil {
 			return err
 		}
@@ -96,14 +102,14 @@ func writeRemoteImage(transport http.RoundTripper) func(v1.Image, image.Name) er
 	}
 }
 
-func writeRemoteIndex(transport http.RoundTripper) func(v1.ImageIndex, image.Name) error {
+func writeRemoteIndex(transport http.RoundTripper, insecure bool) func(v1.ImageIndex, image.Name) error {
 	return func(i v1.ImageIndex, n image.Name) error {
 		auth, err := resolve(n)
 		if err != nil {
 			return err
 		}
 
-		ref, err := getWriteReference(n)
+		ref, err := getWriteReference(n, insecure)
 		if err != nil {
 			return err
 		}
@@ -124,12 +130,16 @@ func resolve(n image.Name) (authn.Authenticator, error) {
 	return resolveFunc(repo.Registry)
 }
 
-func getWriteReference(n image.Name) (name.Reference, error) {
+func getWriteReference(n image.Name, insecure bool) (name.Reference, error) {
 	// if target image reference is both tagged and digested, ignore the digest so the tag is preserved
 	// (the digest will be preserved by go-containerregistry)
 	if n.Tag() != "" {
 		n = n.WithoutDigest()
 	}
 
-	return name.ParseReference(n.String(), name.WeakValidation)
+	parseOpts := []name.Option{name.WeakValidation}
+	if insecure {
+		parseOpts = append(parseOpts, name.Insecure)
+	}
+	return name.ParseReference(n.String(), parseOpts...)
 }
