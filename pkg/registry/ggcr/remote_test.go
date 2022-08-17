@@ -20,14 +20,14 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/cnabio/image-relocation/pkg/image"
+	"github.com/cnabio/image-relocation/pkg/registry/ggcrfakes"
 	"github.com/google/go-containerregistry/pkg/authn"
 	"github.com/google/go-containerregistry/pkg/name"
 	v1 "github.com/google/go-containerregistry/pkg/v1"
 	"github.com/google/go-containerregistry/pkg/v1/remote"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/cnabio/image-relocation/pkg/image"
-	"github.com/cnabio/image-relocation/pkg/registry/ggcrfakes"
 )
 
 var _ = Describe("remote utilities", func() {
@@ -57,7 +57,7 @@ var _ = Describe("remote utilities", func() {
 
 	Describe("readRemoteImage", func() {
 		JustBeforeEach(func() {
-			_, err = readRemoteImage(nil, nil, nil)(imageName)
+			_, err = readRemoteImage(nil, nil, nil, false)(imageName)
 		})
 
 		BeforeEach(func() {
@@ -96,7 +96,7 @@ var _ = Describe("remote utilities", func() {
 
 	Describe("writeRemoteImage", func() {
 		JustBeforeEach(func() {
-			err = writeRemoteImage(nil)(mockImage, imageName)
+			err = writeRemoteImage(nil, false)(mockImage, imageName)
 		})
 
 		Context("when writing to the repository succeeds", func() {
@@ -158,7 +158,7 @@ var _ = Describe("remote utilities", func() {
 		})
 
 		JustBeforeEach(func() {
-			err = writeRemoteIndex(nil)(mockIndex, imageName)
+			err = writeRemoteIndex(nil, false)(mockIndex, imageName)
 		})
 
 		Context("when writing to the repository succeeds", func() {

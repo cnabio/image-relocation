@@ -65,10 +65,21 @@ type Option func(*client)
 // WithTransport overrides the default transport used for remote operations, default is http.DefaultTransport.
 func WithTransport(transport http.RoundTripper) Option {
 	return func(c *client) {
-		writeRemoteImageFunc := writeRemoteImage(transport)
-		writeRemoteIndexFunc := writeRemoteIndex(transport)
+		// There isn't a good way to have a separate function named WithInsecure, because transport isn't available
+		// at that point, insecure and transport need to be set at the same time due to how client and its configuration
+		// is structured. So I am inferring that plain http is allowed when the transport specified allows insecure TLS
+		// connections.
+		insecure := false
+		if t, ok := transport.(*http.Transport); ok {
+			if t.TLSClientConfig != nil {
+				insecure = t.TLSClientConfig.InsecureSkipVerify
+			}
+		}
 
-		c.readRemoteImage = readRemoteImage(writeRemoteImageFunc, writeRemoteIndexFunc, transport)
+		writeRemoteImageFunc := writeRemoteImage(transport, insecure)
+		writeRemoteIndexFunc := writeRemoteIndex(transport, insecure)
+
+		c.readRemoteImage = readRemoteImage(writeRemoteImageFunc, writeRemoteIndexFunc, transport, insecure)
 		c.writeRemoteImage = writeRemoteImageFunc
 		c.writeRemoteIndex = writeRemoteIndexFunc
 	}
