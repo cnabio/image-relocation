@@ -21,7 +21,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/docker/distribution/reference"
+	"github.com/distribution/reference"
 )
 
 const (
