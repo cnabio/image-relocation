@@ -3,7 +3,7 @@ module github.com/cnabio/image-relocation
 go 1.18
 
 require (
-	github.com/docker/distribution v2.7.0+incompatible
+	github.com/docker/distribution v2.8.2+incompatible
 	github.com/google/go-containerregistry v0.0.0-20191015185424-71da34e4d9b3
 	github.com/onsi/ginkgo v1.10.1
 	github.com/onsi/gomega v1.7.0
