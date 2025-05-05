@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/docker/distribution/reference"
+	"github.com/distribution/reference"
 
 	"github.com/cnabio/image-relocation/pkg/image"
 )
